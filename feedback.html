@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feedback — Abuan</title>
+  <style>
+    :root{
+      --bg:#0f172a; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
+      --surface:#0f172a; --white:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071022 0%, #0f1724 100%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* top navigation */
+    nav{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      padding:14px 12px;
+      background:rgba(0,0,0,0.6);
+      position:sticky; top:0; z-index:100;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+    }
+    nav a:hover{ color:var(--white); background:rgba(255,255,255,0.03); }
+
+    /* page layout */
+    .wrap{max-width:960px;margin:36px auto;padding:20px;}
+    .header{
+      text-align:center;margin-bottom:20px;
+    }
+    .header h1{margin:0;font-size:2rem}
+    .header p{color:var(--muted);margin-top:8px}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.6);
+    }
+
+    form{
+      display:grid;
+      gap:12px;
+    }
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;font-weight:600;margin-bottom:6px;color:var(--muted);font-size:0.95rem}
+    input[type="text"], input[type="email"], select, textarea{
+      width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);
+      background:transparent;color:var(--white);outline:none;
+    }
+    textarea{min-height:140px;resize:vertical}
+    .hint{font-size:0.85rem;color:var(--muted)}
+
+    .actions{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:6px;flex-wrap:wrap}
+    .btn{
+      background:var(--accent);color:#05131a;padding:10px 18px;border-radius:10px;text-decoration:none;
+      font-weight:700;border:0;cursor:pointer;
+    }
+    .btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+
+    .success{
+      display:none;
+      margin-top:12px;padding:12px;border-radius:8px;background:linear-gradient(90deg,#064e52,#046b6f);
+      color:#e6fff9;font-weight:600;
+    }
+
+    /* small screens */
+    @media (max-width:720px){
+      .row{grid-template-columns:1fr}
+      nav{flex-wrap:wrap}
+    }
+
+    /* subtle focus for accessibility */
+    input:focus, textarea:focus, select:focus { box-shadow: 0 0 0 3px rgba(6,182,212,0.12); border-color:var(--accent) }
+    .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.9rem}
+    .footer a{color:var(--accent);text-decoration:none;margin-left:8px}
+  </style>
+</head>
+<body>
+  <!-- navbar (keeps consistency with other pages) -->
+  <nav>
+    <a href="Home.html">Home</a>
+    <a href="mygallery.html">My Gallery</a>
+    <a href="mybusiness.html">My Business</a>
+    <a href="myblog.html">My Blog</a>
+    <a href="about.html">About</a>
+    <a href="feedback.html" aria-current="page">Feedback</a>
+  </nav>
+
+  <main class="wrap">
+    <header class="header">
+      <h1>Send Feedback</h1>
+      <p class="hint">I’d love to hear from you — suggestions, questions, or anything you want to share.</p>
+    </header>
+
+    <section class="card" aria-labelledby="feedback-heading">
+      <h2 id="feedback-heading" style="margin:0 0 10px 0;color:var(--muted)">Feedback Form</h2>
+
+      <!-- form: no backend required. The JS below demonstrates client-side validation and success message.
+           Replace the "handleSubmit" to send data to your server or an email service when available. -->
+      <form id="feedbackForm" novalidate>
+        <!-- visible fields -->
+        <div class="row">
+          <div>
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Juan dela Cruz" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+
+        <div>
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Suggestion, Bug report, etc." required>
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="rating">Rate your experience</label>
+            <select id="rating" name="rating" aria-label="Rating">
+              <option value="">— Select —</option>
+              <option value="5">5 — Excellent</option>
+              <option value="4">4 — Very good</option>
+              <option value="3">3 — Good</option>
+              <option value="2">2 — Fair</option>
+              <option value="1">1 — Poor</option>
+            </select>
+            <p class="hint" style="margin-top:6px">Optional — helps me improve the site.</p>
+          </div>
+
+          <div>
+            <label for="attachment">Attachment (optional)</label>
+            <input id="attachment" name="attachment" type="file" accept="image/*,.pdf">
+            <p class="hint">Images or short screenshots are useful for bug reports.</p>
+          </div>
+        </div>
+
+        <!-- honeypot field (invisible to human users) -->
+        <div style="position:absolute;left:-10000px;top:auto;overflow:hidden;">
+          <label>Leave this field empty</label>
+          <input id="hp" name="hp" type="text" autocomplete="off" tabindex="-1">
+        </div>
+
+        <div class="actions">
+          <div>
+            <button type="submit" class="btn">Send Feedback</button>
+            <button type="button" id="resetBtn" class="btn secondary">Reset</button>
+          </div>
+          <div class="hint">By sending you agree to be contacted if needed. No spam — promise.</div>
+        </div>
+
+        <div id="success" class="success" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <p class="footer">Prefer email? <a href="mailto:mybusiness@email.com">mybusiness@email.com</a></p>
+  </main>
+
+  <script>
+    // Simple client-side form handling (no server). Replace with real endpoint if available.
+    (function(){
+      const form = document.getElementById('feedbackForm');
+      const success = document.getElementById('success');
+      const resetBtn = document.getElementById('resetBtn');
+
+      function showMessage(text){
+        success.textContent = text;
+        success.style.display = 'block';
+        setTimeout(()=> { success.style.opacity = '1'; }, 10);
+      }
+
+      function clearMessage(){
+        success.style.display = 'none';
+        success.textContent = '';
+      }
+
+      form.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        clearMessage();
+
+        // basic validation
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const subject = form.subject.value.trim();
+        const message = form.message.value.trim();
+        const honeypot = form.hp.value;
+
+        if(honeypot){
+          // probable bot — silently ignore
+          return;
+        }
+
+        if(!name || !email || !subject || !message){
+          showMessage('Please complete the required fields (name, email, subject, message).');
+          return;
+        }
+
+        // simple email pattern check
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailPattern.test(email)){
+          showMessage('Please provide a valid email address.');
+          return;
+        }
+
+        // If you have a backend endpoint, send data with fetch() from here.
+        // Example (commented):
+        /*
+        const data = new FormData(form);
+        fetch('https://your-server.example/feedback', { method: 'POST', body: data })
+          .then(r => r.ok ? showMessage('Thanks — your feedback was sent!') : showMessage('Failed to send.'))
+          .catch(()=> showMessage('Network error. Try again later.'));
+        return;
+        */
+
+        // Otherwise, demonstrate success locally:
+        showMessage('Thanks, ' + name.split(' ')[0] + '! Your feedback was received. I will read it soon.');
+
+        // optional: store to localStorage (so you can view it later in the browser)
+        try {
+          const existing = JSON.parse(localStorage.getItem('feedbacks')||'[]');
+          existing.push({name, email, subject, message, rating: form.rating.value || null, date: new Date().toISOString()});
+          localStorage.setItem('feedbacks', JSON.stringify(existing));
+        } catch(e){ /* ignore storage errors */ }
+
+        form.reset();
+      });
+
+      resetBtn.addEventListener('click', function(){ form.reset(); clearMessage(); });
+    })();
+  </script>
+</body>
+</html>

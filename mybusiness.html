@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Business</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    /* 🔹 Navbar */
+    nav {
+      background: #0f172a;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* 🔹 Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("business-banner.jpg") center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin: 0 0 20px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .hero a {
+      background: #38bdf8;
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .hero a:hover {
+      background: #0ea5e9;
+    }
+
+    /* 🔹 Services Section */
+    .services {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .service {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+    .service:hover {
+      transform: translateY(-5px);
+    }
+    .service h3 {
+      margin-top: 15px;
+      color: #0f172a;
+    }
+    .service p {
+      color: #475569;
+    }
+
+    /* 🔹 Contact Section */
+    .contact {
+      text-align: center;
+      padding: 50px 20px;
+      background: #0f172a;
+      color: white;
+    }
+    .contact h2 {
+      margin-bottom: 15px;
+    }
+    .contact p {
+      margin: 8px 0;
+      color: #cbd5e1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔹 Navbar -->
+  <nav>
+    <a href="Home.html">Home</a>
+    <a href="mygallery.html">My Gallery</a>
+    <a href="mybusiness.html">My Business</a>
+    <a href="myblog.html">My Blog</a>
+    <a href="about.html">About</a>
+    <a href="feedback.html">Feedback</a>
+  </nav>
+
+  <!-- 🔹 Hero Banner -->
+  <section class="hero">
+    <h1>Welcome to My Business</h1>
+    <p>Your trusted partner in quality products and services.</p>
+    <a href="#services">Explore Services</a>
+  </section>
+
+  <!-- 🔹 Services -->
+  <section id="services" class="services">
+    <div class="service">
+      <img src="ge.jpg" alt="Service 1" width="100">
+      <h3>Web Design</h3>
+      <p>We build modern, responsive websites to grow your business online.</p>
+    </div>
+    <div class="service">
+      <img src="aw.jpg" alt="Service 2" width="100">
+      <h3>Graphic Design</h3>
+      <p>Creative branding, logos, and marketing designs to stand out.</p>
+    </div>
+    <div class="service">
+      <img src="gege.jpg" alt="Service 3" width="100">
+      <h3>IT Support</h3>
+      <p>Reliable technical support and solutions for your business needs.</p>
+    </div>
+  </section>
+
+  <!-- 🔹 Contact -->
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <p>Email: Christianabuan01@gmail.com</p>
+    <p>Phone: +63 9303724035</p>
+    <p>Address: Imus City, Philippines</p>
+  </section>
+
+  <!-- 🔹 Footer -->
+  <footer>
+    <p>&copy; 2025 My Business | 
+      <a href="Privacy.html">Privacy</a> | 
+      <a href="Terms.html">Terms</a> | 
+      <a href="Faq.html">FAQs</a> | 
+      <a href="Help.html">Help</a>
+    </p>
+  </footer>
+</body>
+</html>

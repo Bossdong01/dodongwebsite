@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Gallery — Abuan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0f172a, #1e293b);
+      color: #fff;
+    }
+
+    /* 🔹 Navigation */
+    nav {
+      background: rgba(0,0,0,0.85);
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #06b6d4;
+    }
+
+    /* 🔹 Page Header */
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin: 0 0 10px;
+    }
+    header p {
+      color: #94a3b8;
+      font-size: 1.1em;
+    }
+
+    /* 🔹 Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #94a3b8;
+    }
+    footer a {
+      color: #06b6d4;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔹 Navbar -->
+  <nav>
+    <a href="Home.html">Home</a>
+    <a href="mygallery.html">My Gallery</a>
+    <a href="mybusiness.html">My Business</a>
+    <a href="myblog.html">My Blog</a>
+    <a href="about.html">About</a>
+    <a href="feedback.html">Feedback</a>
+  </nav>
+
+  <!-- 🔹 Gallery Header -->
+  <header>
+    <h1>My Gallery</h1>
+    <p>Some of my favorite memories and pictures.</p>
+  </header>
+
+  <!-- 🔹 Gallery Grid -->
+  <section class="gallery">
+    <img src="fam.jpg" alt="Gallery Image 1">
+    <img src="fam2.jpg" alt="Gallery Image 2">
+    <img src="fam3.jpg" alt="Gallery Image 3">
+    <img src="fam4.jpg" alt="Gallery Image 4">
+    <img src="fam5.jpg" alt="Gallery Image 5">
+    <img src="fam6.jpg" alt="Gallery Image 6">
+  </section>
+
+  <!-- 🔹 Footer -->
+  <footer>
+    <p>&copy; 2025 Abuan | 
+      <a href="Privacy.html">Privacy</a> | 
+      <a href="Terms.html">Terms</a> | 
+      <a href="Faq.html">FAQs</a> | 
+      <a href="Help.html">Help</a>
+    </p>
+  </footer>
+</body>
+</html>
